@@ -6,6 +6,8 @@ all: build save
 .PHONY: build
 build:
 	@echo "Building distcc volunteer image..."
+	# remove existing image from build context
+	@rm -f archlinux-distcc.tar
 	@docker build -t archlinux:distcc .
 
 .PHONY: save
