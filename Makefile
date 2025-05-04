@@ -30,6 +30,12 @@ run:
 	@docker run -it --rm --detach --name distcc-volunteer archlinux:distcc
 	@echo "Container started successfully"
 
+.PHONY: stop
+stop:
+	@echo "Stopping distcc volunteer container..."
+	@docker stop distcc-volunteer || true
+	@echo "Container stopped successfully"
+
 .PHONY: clean
 clean:
 	@echo "Cleaning up..."
