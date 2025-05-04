@@ -22,6 +22,12 @@ load: archlinux-distcc.tar
 	@docker load -i archlinux-distcc.tar
 	@echo "Image loaded successfully"
 
+.PHONY: run
+run:
+	@echo "Running distcc volunteer image..."
+	@docker run -it --rm --detach --name distcc-volunteer archlinux:distcc
+	@echo "Exited from the container"
+
 .PHONY: clean
 clean:
 	@echo "Cleaning up..."
