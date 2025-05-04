@@ -22,6 +22,13 @@ load: archlinux-distcc.tar
 	@docker load -i archlinux-distcc.tar
 	@echo "Image loaded successfully"
 
+.PHONY: clean
+clean:
+	@echo "Cleaning up..."
+	@docker rmi archlinux:distcc || true
+	@rm -f archlinux-distcc.tar
+	@echo "Cleaned up successfully"
+
 .PHONY: usage
 usage:
 	@echo "Usage: make [target]"
